@@ -1,7 +1,17 @@
-import React from 'react'
+'use client'
+import { useState } from "react"
 
-export default function page() {
+
+export default function Page() {
+
+  const [count, setCount] = useState(0)
+
   return (
-    <div>page</div>
+    <main className="flex flex-col items-center justify-center min-h-screen">
+      <h1 className="text-2xl font-semibold mb-4">Use State Hooks</h1>
+      <div>
+        Count: {count}
+      </div>
+    </main>
   )
 }
