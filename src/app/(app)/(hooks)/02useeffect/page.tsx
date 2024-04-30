@@ -1,27 +1,28 @@
 'use client'
 import { Button } from "@/components/ui/button"
-import { useState } from "react"
+import { useEffect } from "react"
 
-interface DemoProps{}
+
+interface DemoProps {}
 
 export default function Page({ }: DemoProps) {
 
-  const [count, setCount] = useState(0)
+  
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen">
-      <h1 className="text-4xl font-semibold mb-4">Use State Hooks</h1>
+      <h1 className="text-4xl font-semibold mb-4">Use Effect Hooks</h1>
       <div className="text-xl">
-        Count: {count}
+        Count: 
       </div>
       <div className="flex gap-2 mt-4">
         <Button
-          onClick={() => setCount(count + 1)}
+          
         >
           Increment
         </Button>
         <Button
-          onClick={() => setCount(count - 1)}
+          
         >
           Decrement
         </Button>
