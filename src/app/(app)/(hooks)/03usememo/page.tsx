@@ -14,9 +14,14 @@ export default function Page({}: DemoProps) {
 	// This SelectedItems has performance issue
    // const selectedItem = items.find((item) => item.isSelected);
    
+	// const selectedItem = useMemo(
+	// 	() => items.find((item) => item.isSelected),
+	// 	[items]
+	// );
+
 	const selectedItem = useMemo(
-		() => items.find((item) => item.isSelected),
-		[items]
+		() => items.find((item) => item.id === count),
+		[items, count]
 	);
    
    return (
@@ -32,7 +37,7 @@ export default function Page({}: DemoProps) {
 				<p>In This below example without setting this large value in Memo- this method re-render everytime and find this large number. or unnecessary computation  </p>
 				<pre>
 					<code className="bg-gray-300">
-						`const selectedItem = items.find((item) => item.isSelected);`
+						`const selectedItem = items.find((item) {'=>'} item.isSelected);`
 					</code>
 				</pre>
 				<p>If the item is not changing then value should not re-compute. It render only once and when the item is changed.</p>
