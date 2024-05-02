@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Search from '@/lib/Search'
 import Shuffle from "@/lib/Shuffle";
 
@@ -13,8 +13,6 @@ const allUsers = [
 ]
 
 
-
-
 interface DemoProps {}
 
 export default function Page({}: DemoProps) {
@@ -22,12 +20,20 @@ export default function Page({}: DemoProps) {
    const [users, setUsers] = useState(allUsers)
    
 
-   const handleSearch = (text: string) => {
+   // const handleSearch = (text: string) => {
+   //    const filteredUsers = allUsers.filter((user) =>
+   //       user.includes(text),
+   //    );
+   //    setUsers(filteredUsers)
+   // }
+
+   const handleSearch = useCallback((text: string) => {
+      console.log(users[0]) // it is frozen
       const filteredUsers = allUsers.filter((user) =>
-         user.includes(text)
-      )
+         user.includes(text),
+      );
       setUsers(filteredUsers)
-   }
+   }, [users])
  
    
    return (
