@@ -30,7 +30,7 @@ export default function Page({}: DemoProps) {
          </div>
          <div className="mt-4 underline text-lg font-medium">All Users</div>
 			<div className="mt-6 border p-4">
-				<p>Use Context hook with Search Example</p>
+				<p>Use Context hook with Dashboard Example where Profile and Sidebar has User info and That info instead of proping we use Context provider and with custom hook useUserContext.</p>
 			</div>
 		</main>
       </DashboardContext.Provider>
