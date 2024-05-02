@@ -1,4 +1,7 @@
-import { User } from "./page";
+// import { User } from "./page";
+
+import { useContext } from "react"
+import { DashboardContext, useUserContext } from "./context"
 
 interface SidebarProps {
    // user: User;
@@ -9,6 +12,10 @@ interface ProfileProps {
 }
 
 export function SideBar({ }: SidebarProps) {
+
+   // const user = useContext(DashboardContext)
+   const user = useUserContext()
+   
    return (
       <div>
          <div className="font-medium">Username: {user.name}</div>
@@ -19,5 +26,7 @@ export function SideBar({ }: SidebarProps) {
 
 
 export function Profile({ }: ProfileProps) {
+   // const user = useContext(DashboardContext)
+   const user = useUserContext()
    return <div>{user.name}</div>
 }
