@@ -1,9 +1,9 @@
 ## Learning React with Hooks and different functions
 
 - Hooks
-   - [] UseState
+   - [ ] UseState
 - Features
- - [] SearchTab Feature
+ - [ ] SearchTab Feature
    - [x] Working with Fetch
    - [x] UI Improved 
-   - [] Axios Pending
+   - [ ] Axios Pending
