@@ -1,4 +1,25 @@
 @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
-  
+@tailwind components;
+@tailwind utilities;
+
+
+/* For Animated Border */
+@layer utilities {
+	/* Act as a border */
+	.card-wrapper {
+		@apply relative bg-gradient-to-b from-slate-700 to-slate-800 rounded-xl overflow-hidden
+	}
+
+	/* Gradient */
+	.card-wrapper::before {
+    background: conic-gradient(
+      rgba(244,114,182, 0.4) 0deg,
+      rgba(192,132,252, 0.4) 0deg,
+      transparent 80deg
+    );
+    @apply content-['s'] absolute size-[150%] top-[-25%] left-[-25%]   animate-border-spin;
+	}
+	.card-content {
+    @apply size-[calc(100%-4px)] top-[2px] left-[2px] bg-gradient-to-b from-slate-800 to-slate-900 rounded-xl absolute
+	}
+}
