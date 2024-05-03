@@ -17,6 +17,7 @@ export default function SearchBar() {
 					return value &&  user && user.name && user.name.toLowerCase().includes(value)
 				})
 				setResults(results)
+				console.log(results)
 		})
 	}
 
@@ -26,24 +27,28 @@ export default function SearchBar() {
 	}
 
 	return (
-		<div className="flex flex-col items-center justify-center min-h-screen bg-slate-100 ">
-			<div className="flex gap-2 ">
-            <Input
+		<div className="flex flex-col items-center justify-center min-h-screen">
+			<div className="w-1/3 space-y-4">
+			<div className="flex gap-4 ">
+				<Input
+					className="border-2"
 					value={input}
 					onChange={(e) => handleChange(e.target.value)}
                placeholder="Type to Search.."
             />
 				<Button>Search</Button>
 			</div>
-			<div>
+			<div className="shadow-md border rounded p-4">
 				<ul>
-
 				{
-					results.map((result, id) => (
+					results?.length > 0
+					? "No Result"
+					: results.map((result, id) => (
 						<li key={id}>{result.name}</li>
 					))
 				}
 				</ul>
+			</div>
 			</div>
 		</div>
 	);
