@@ -1,12 +1,14 @@
 ## Learning React with Hooks and different functions
 
 - Hooks
-   - [ ] UseState
-   - [ ] UseEffect
-   - [ ] UseRef
+   - [x] UseState
+   - [x] UseEffect
+   - [x] UseRef
    - [ ] UseReducer
    - [ ] UseContext
    - [ ] UseQuery
+   - [x] useLayoutEffect
+   - [ ] useDebugValue Pending
 - Features
  - [ ] SearchTab Feature
    - [x] Working with Fetch
