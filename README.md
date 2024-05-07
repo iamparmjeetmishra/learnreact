@@ -4,6 +4,7 @@
    - [x] UseState
    - [x] UseEffect
    - [x] UseRef
+   - [x] UseRef V2 with Input example
    - [ ] UseReducer
    - [ ] UseContext
    - [ ] UseQuery
