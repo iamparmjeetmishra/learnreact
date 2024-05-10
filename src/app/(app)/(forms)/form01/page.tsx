@@ -9,6 +9,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { TfiWrite } from "react-icons/tfi";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+
+
 
 const formSchema = z.object({
 	fullName: z.string().min(3).max(30),
@@ -52,17 +57,17 @@ export default function FormPage() {
 						className="space-y-8 w-full"
 					>
 						<div className="flex flex-col gap-2">
-							<label htmlFor="fullName" className="label">
+							<label htmlFor="fullName" className="">
 								Your Name
 							</label>
 							<div className="relative mb-1 ">
 								<div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
 									<FaUser className="w-5 " />
 								</div>
-								<input
+								<Input
 									type="text"
 									id="fullName"
-									className="input"
+									className="ps-10"
 									placeholder="Enter your name"
 									{...register("fullName")}
 								/>
@@ -74,16 +79,16 @@ export default function FormPage() {
 							)}
 						</div>
 						<div className="flex flex-col gap-2">
-							<label htmlFor="email" className="label">
+							<label htmlFor="email" className="">
 								Your Email
 							</label>
 							<div className="relative mb-1">
 								<div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
 									<MdEmail className="w-5" />
 								</div>
-								<input
+								<Input
 									type="email"
-									className="input"
+									className="ps-10"
 									id="email"
 									placeholder="Enter your email"
 									{...register("email")}
@@ -97,16 +102,16 @@ export default function FormPage() {
 							)}
 						</div>
 						<div className="flex flex-col gap-2">
-							<label htmlFor="message" className="label">
+							<label htmlFor="message" className="">
 								Your Message
 							</label>
 							<div className="relative mb-1 ">
 								<div className="absolute inset-y-0 start-0 flex items-start pt-3.5 ps-3.5 pointer-events-none">
 									<TfiWrite className="w-5" />
 								</div>
-								<textarea
+								<Textarea
 									rows={4}
-									className="input"
+									className="ps-10"
 									id="message"
 									placeholder="Enter your message"
 									{...register("message")}
@@ -118,16 +123,16 @@ export default function FormPage() {
 								</span>
 							)}
 						</div>
-						<button
+						<Button
 							disabled={isSubmitting}
 							type="submit"
 							className="px-10 py-3 flex justify-center w-full bg-neutral-800/90 font-semibold rounded-xl  hover:bg-gradient-to-r from-twOg-100 to-twOg-200 hover:transition-background-color"
 						>
 							{isSubmitting ? "Submitting..." : "Submit"}
-						</button>
+						</Button>
 					</form>
 				</main>
-				<div className="md:w-[50%] p-6 border shadow-xl rounded-xl flex flex-col items-center justify-center bg-slate-800">
+				<div className="md:w-[50%] p-6 border shadow-xl rounded-xl flex flex-col items-center justify-center bg-slate-800 text-white">
 					<h2 className="text-2xl font-bold underline mb-8">
 						{" "}
 						Form Data{" "}
