@@ -17,3 +17,11 @@
    - [ ] Axios Pending
 - UI Elements
  - [x] Animated Border Spin
+- Forms
+   - [x] Basic Form is added
+      - [x] Zod is added
+      - [ ] TS is not added yet
+      - [ ] Toast is not added yet
+      - [ ] form email validation - Like real email
+   - [ ] Multi-step form
+   - [ ] Form with otp verification
