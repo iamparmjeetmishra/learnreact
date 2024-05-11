@@ -1,5 +1,8 @@
 ## Learning React with Hooks and different functions
-
+- Page
+   - [ ] Navbar
+   - [ ] Search function
+   - [ ] All Designs and Hooks Links
 - Hooks
    - [x] UseState
    - [x] UseEffect
