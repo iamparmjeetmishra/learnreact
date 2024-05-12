@@ -5,7 +5,7 @@ import { Button } from './ui/button'
 
 export default function Navbar() {
   return (
-     <nav>
+     <nav className='flex row gap-2 p-4 justify-center'>
         <Button>
            <Link
             href={'/'}>Home</Link>
