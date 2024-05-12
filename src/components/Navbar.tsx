@@ -10,6 +10,18 @@ export default function Navbar() {
            <Link
             href={'/'}>Home</Link>
         </Button>
+        <Button>
+           <Link
+            href={'/hooks'}>Hooks</Link>
+        </Button>
+        <Button>
+           <Link
+            href={'/UIs'}>UI Elements</Link>
+        </Button>
+        <Button>
+           <Link
+            href={'/Forms'}>Forms</Link>
+      </Button>
     </nav>
   )
 }
