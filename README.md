@@ -13,6 +13,8 @@
    - [ ] UseQuery
    - [x] useLayoutEffect
    - [ ] useDebugValue Pending
+   - New Features
+   - [x] Signals
 - Features
  - [ ] SearchTab Feature
    - [x] Working with Fetch
