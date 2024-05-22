@@ -2,13 +2,16 @@
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { signal, effect, batch } from "@preact/signals-react";
-interface DemoProps {}
+
+import {Counter, count} from './Counter'
+
+interface DemoProps { }
 
 export default function Page({}: DemoProps) {
 	//   const [count, setCount] = useState(0)
 	console.log("Rendering", Date.now());
 
-	const count = signal(0);
+	// const count = signal(0);
 	const double = signal(1);
 	// const setCount = (val) => (count.value += val)
 	const setCount = (val) => {
@@ -26,6 +29,7 @@ export default function Page({}: DemoProps) {
 				Managing State with Signals
 			</h1>
 			<div className="text-xl">
+				<Counter />
 				<p>Count: {count}</p>
 				<p>Double: {double}</p>
 			</div>
