@@ -1,6 +1,6 @@
 ## Learning React with Hooks and different functions
 - Page
-   - [ ] Navbar
+   - [x] Navbar
    - [ ] Search function
    - [ ] All Designs and Hooks Links
 - Hooks
