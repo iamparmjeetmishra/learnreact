@@ -22,6 +22,7 @@
    - [ ] Axios Pending
 - UI Elements
  - [x] Animated Border Spin
+ - [x] Animated Pill Nav
 - Forms
    - [x] Basic Form is added
       - [x] Zod is added
