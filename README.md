@@ -35,3 +35,6 @@
    - State Management
       - [] Redux toolkit
          - [x] Basic RTX with counter
+         - [ ] Dark Mode Using RTX
+         - [ ] State with RTX
+         - [ ] Cart with RTX
