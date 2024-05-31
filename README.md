@@ -31,3 +31,7 @@
       - [ ] form email validation - Like real email
    - [ ] Multi-step form
    - [ ] Form with otp verification
+- React Must Know Topics
+   - State Management
+      - [] Redux toolkit
+         - [x] Basic RTX with counter
