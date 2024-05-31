@@ -33,8 +33,13 @@
    - [ ] Form with otp verification
 - React Must Know Topics
    - State Management
-      - [] Redux toolkit
+      - [ ] Redux toolkit
          - [x] Basic RTX with counter
          - [ ] Dark Mode Using RTX
          - [ ] State with RTX
          - [ ] Cart with RTX
+      - [ ] Zustand
+         - [ ] Basic with Counter using zustand
+         - [ ] Dark Mode Using Zustand
+         - [ ] State with Zustand
+         - [ ] Cart with Zustand
