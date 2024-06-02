@@ -23,6 +23,8 @@
 - UI Elements
  - [x] Animated Border Spin
  - [x] Animated Pill Nav
+- Misc
+   - [x] CnBtn Function that utilize TwMerge and Clsx Utility
 - Forms
    - [x] Basic Form is added
       - [x] Zod is added
