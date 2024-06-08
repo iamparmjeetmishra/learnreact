@@ -3,18 +3,18 @@ import { useState, useEffect } from "react"
 
 const synth = window.speechSynthesis;
 
-const speak = (state, voice) => {
+const speak = (state: any, voice: any) => {
    const utterance = new SpeechSynthesisUtterance()
    utterance.voice = voice
    utterance.text = state.text
    synth.speak(utterance)
 }
 
-const useTts = () => {
+export default function useTts () {
    const [voices, setVoices] = useState([])
 
    useEffect(() => {
-      const list = synth.getVoices()
+      let list = synth.getVoices()
       setVoices(list)
    }, [])
 
@@ -27,4 +27,4 @@ const useTts = () => {
    }
 }
 
-export default useTts;
+// export default useTts;

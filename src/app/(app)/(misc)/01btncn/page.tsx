@@ -48,7 +48,7 @@ function CnBtn({ className, ...props }: BtnProps) {
 	);
 }
 
-export function cn(...inputs: ClassValue[]) {
+function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs))
 }
 

@@ -14,7 +14,7 @@ export default function Carouselcomponent() {
 const Carousel = () => {
    return (
       <div>
-         <Button>-</Button>
+         <Button variant={'outline'}>-</Button>
          <CarouselItem />
       </div>
    )

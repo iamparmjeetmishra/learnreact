@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea";
 import React, { useEffect, useState } from "react";
-import {useTts} from "./useTts";
+import useTts from "./useTts";
 // import dynamic from "next/dynamic";
 
 // const DynamicUseTts = dynamic(() => import('./useTts'), {
@@ -34,20 +34,23 @@ export default function Tts() {
 	// Next
 
 	const [text, setText] = useState("Hello there my amazing friend.");
-	const [voice, setVoice] = useState(null);
+	const [voice, setVoice] = useState<voices | null>(null);
 	const { voices, speak, resume, pause, cancel } = useTts();
 
 	useEffect(() => {
 		setVoice(voices[0]);
 	}, [voices]);
 
-	const onClick = () => speak({ text }, voice);
+	// const onClick = () => speak({ text }, voice);
 
-	const onVoiceChange = (e) => {
+	const onClick = () => speak(text , voice);
+
+
+	const onVoiceChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
 		setVoice(voices.find((v) => v.name === e.target.value));
 	};
 
-	const onTextChange = (e) => {
+	const onTextChange = (e:any) => {
 		setText(e.target.value);
 	};
 
