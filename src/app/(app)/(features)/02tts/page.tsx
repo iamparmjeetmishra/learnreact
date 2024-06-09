@@ -11,12 +11,7 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import React, { useEffect, useState } from "react";
 import useTts from "./useTts";
-// import dynamic from "next/dynamic";
 
-// const DynamicUseTts = dynamic(() => import('./useTts'), {
-// 	ssr: false,
-// 	loading: () => <p>Loading ...</p>,
-// })
 
 export default function Tts() {
 	const basicSpeak = () => {
