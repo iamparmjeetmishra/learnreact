@@ -23,7 +23,7 @@
 - UI Elements
  - [x] Animated Border Spin
  - [x] Animated Pill Nav
- - [ ] Carousel Component
+ - [x] Carousel Component
 - Misc
    - [x] CnBtn Function that utilize TwMerge and Clsx Utility
 - Forms
