@@ -24,6 +24,7 @@
  - [x] Animated Border Spin
  - [x] Animated Pill Nav
  - [x] Carousel Component
+ - [x] Collapsible Sidebar
 - Misc
    - [x] CnBtn Function that utilize TwMerge and Clsx Utility
 - Forms
