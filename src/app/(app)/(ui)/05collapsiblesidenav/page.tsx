@@ -1,10 +1,12 @@
 import React from 'react'
 import Header from './Header'
+import SideNav from './SideNav'
 
 export default function Collapsiblesidenav() {
   return (
      <div>
-        <Header />
-        05collapsiblesidenav</div>
+      <Header />
+      <SideNav />
+      </div>
   )
 }
