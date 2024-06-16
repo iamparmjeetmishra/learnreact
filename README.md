@@ -25,6 +25,7 @@
  - [x] Animated Pill Nav
  - [x] Carousel Component
  - [x] Collapsible Sidebar
+ - [x] Folding Image Animation
 - Misc
    - [x] CnBtn Function that utilize TwMerge and Clsx Utility
 - Forms
