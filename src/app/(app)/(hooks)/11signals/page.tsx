@@ -21,7 +21,7 @@ export default function Page({}: DemoProps) {
 		});
 	};
 
-	effect(() => console.log(count.value));
+	// effect(() => console.log(count.value));
 
 	return (
 		<main className="flex flex-col items-center justify-center min-h-screen">
