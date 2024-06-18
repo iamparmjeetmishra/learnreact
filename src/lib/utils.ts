@@ -12,3 +12,7 @@ export const initialItems = new Array(29_999_999).fill(0).map((_, i) => {
     isSelected: i === 29_999_998,
   };
 });
+
+export function delay(ms: number) {
+  return new Promise(resolve => setTimeout(resolve, ms))
+}
