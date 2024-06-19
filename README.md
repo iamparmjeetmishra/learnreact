@@ -36,6 +36,10 @@
       - [ ] form email validation - Like real email
    - [ ] Multi-step form
    - [ ] Form with otp verification
+   - [x] Form with Valibot and Server Action
+      - Valibot Validation
+      - Server Actions
+      - Schema
 - React Must Know Topics
    - State Management
       - [ ] Redux toolkit
