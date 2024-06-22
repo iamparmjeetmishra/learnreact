@@ -16,6 +16,15 @@ export default function Home() {
         <div>
           <h2 className="text-semibold text-2xl">UIs</h2>
         </div>
+        <div>
+          <h2 className="text-semibold text-2xl">Forms</h2>
+        </div>
+        <div>
+          <h2 className="text-semibold text-2xl">State Management</h2>
+        </div>
+        <div>
+          <h2 className="text-semibold text-2xl">Misc</h2>
+        </div>
       </div>
     </div>
   )
