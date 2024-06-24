@@ -3,6 +3,8 @@
    - [x] Navbar
    - [ ] Search function
    - [ ] All Designs and Hooks Links
+   - [ ] Header and footer
+   - [ ] Sidebar
 - Hooks
    - [x] UseState
    - [x] UseEffect
