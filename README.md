@@ -29,6 +29,7 @@
  - [x] Collapsible Sidebar
  - [x] Folding Image Animation
  - [x] Perfect Rounded Border
+ - [ ] Foldable Map Effect
 - Misc
    - [x] CnBtn Function that utilize TwMerge and Clsx Utility
 - Forms
