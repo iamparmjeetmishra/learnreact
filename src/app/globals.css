@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* For Animated Border */
 @layer utilities {
 	/* Act as a border */
 	.card-wrapper {
