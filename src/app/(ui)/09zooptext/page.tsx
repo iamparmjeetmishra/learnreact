@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export const RevealLinks = () => {
+export default function RevealLinks () {
   return (
     <section className="grid place-content-center gap-2 bg-green-300 px-8 py-24 text-black">
       <FlipLink href="#">Twitter</FlipLink>
