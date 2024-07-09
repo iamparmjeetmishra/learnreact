@@ -33,7 +33,7 @@ export default function SideNav() {
 			"sidebarExpanded",
 			JSON.stringify(isSidebarExpanded)
 		);
-	}, [isSidebarExpanded]);
+	}, [isSidebarExpanded]);	
 
 	// Toggle the sidebar state
 	const toggleSidebar = () => {
