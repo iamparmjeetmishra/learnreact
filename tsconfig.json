@@ -22,6 +22,6 @@
       "@/public/*": ["./public/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/(hooks)/05usecontext2/page.jsx", "src/app/(hooks)/05usecontext2/contexts/count-context.jsx"],
   "exclude": ["node_modules"]
 }

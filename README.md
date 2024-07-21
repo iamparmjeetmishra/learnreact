@@ -12,6 +12,7 @@
    - [x] UseRef V2 with Input example
    - [ ] UseReducer
    - [ ] UseContext
+   - [x] UseContext V2 Optimisation
    - [ ] UseQuery
    - [x] useLayoutEffect
    - [ ] useDebugValue Pending
