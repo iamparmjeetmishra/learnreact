@@ -17,39 +17,33 @@ type PostData = {
 };
 
 export default function ReactQueryPage() {
-	const QueryClient = useQueryClient();
+	const queryClient = useQueryClient();
 
+	// Fetch posts
 	const { data, error, isLoading } = useQuery({
 		queryKey: ["posts"],
-		queryFn: () => axios.get(URL),
+    queryFn: () => axios.get(URL).then((res) => res.data), 
+    staleTime: 1000 * 60 * 5, // 5 minutes
+    // refetchOnReconnect: true,
+    // refetchOnWindowFocus: true,
+    // retry: 5,
 	});
 
-	const { mutate, isError, isPending, isSuccess } = useMutation({
-		mutationFn: (newPost) =>
-			axios.post(URL, newPost, {
-				headers: {
-					"Content-type": "application/json; charset=UTF-8",
-				},
-			}),
+	// Add a new post
+	const { mutate, isError, isPending } = useMutation({
+		mutationFn: (newPost: PostData) =>
+			axios.post(URL, newPost).then((res) => res.data),
 		onSuccess: (newPost: PostData) => {
-			QueryClient.setQueryData(["posts"], (oldPosts: PostData[]) => [
-				...oldPosts,
-				newPost,
-			]);
+			// Update cache
+			queryClient.setQueryData<PostData[] | undefined>(["posts"], (oldPosts) => {
+				return oldPosts ? [...oldPosts, newPost] : [newPost];
+			});
 		},
 	});
 
-	if (error) return <div>Error</div>;
-	if (isError) return <div>Error from mutate</div>;
-
+	if (error) return <div>Error loading posts</div>;
+	if (isError) return <div>Error adding post</div>;
 	if (isLoading) return <div>Loading....</div>;
-
-	const PostDataFeed: PostData = {
-		userId: 2002,
-		id: 42323,
-		title: "new Post title",
-		body: "new Body data",
-	};
 
 	return (
 		<div className="mx-auto w-full min-h-screen flex flex-col bg-slate-200">
@@ -66,11 +60,11 @@ export default function ReactQueryPage() {
 						})
 					}
 				>
-					Update Post
+					Add Post
 				</Button>
 
-				<div className="flex gap-4 flex-wrap mt-4 ">
-					{data?.data.map((item: any) => (
+				<div className="flex gap-4 flex-wrap mt-4">
+					{data?.map((item: PostData) => (
 						<div
 							key={item.id}
 							className="rounded border border-slate-400 p-2"
