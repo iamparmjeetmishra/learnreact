@@ -58,3 +58,7 @@
          - [ ] Dark Mode Using Zustand
          - [ ] State with Zustand
          - [ ] Cart with Zustand
+- Animation
+   - [ ] Motion Series
+      - [x] Motion 101 for Basic (while hover)
+      - [x] Motion 102 for Exit animation
