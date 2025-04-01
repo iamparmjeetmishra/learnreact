@@ -62,4 +62,4 @@
    - [ ] Motion Series
       - [x] Motion 101 for Basic (while hover)
       - [x] Motion 102 for Exit animation
-      - [ ] Motion 102 for Motion Variants 
+      - [ ] Motion 102 for Motion Variants ["Animate Orchestration]

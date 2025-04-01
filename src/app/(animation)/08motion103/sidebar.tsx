@@ -1,6 +1,7 @@
 import { IconChartBar, IconChevronLeft, IconChevronRight, IconHome, IconSettings, IconUser } from "@tabler/icons-react"
 import { useState } from "react"
 import { motion } from "motion/react"
+import { delay } from "framer-motion"
 
 export const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(true)
@@ -31,21 +32,56 @@ export const Sidebar = () => {
       icon: <IconSettings />
     }
   ]
-  return (
-    <div className="border-r border-neutral-100 h-full">
-      <motion.nav
-        initial={{
-          width: "4.5rem"
-        }}
-        animate={{
-          width: isOpen ? "16rem" : "4.5rem"
-        }}
-        transition={{
-          duration: 0.3,
-          ease: "easeInOut" 
-        }}
 
-        className="bg-white shadow-md h-full">
+  const sidebarVariant = {
+    open: {
+      width: "16rem"
+    },
+    closed: {
+      width: "4.5rem" 
+    }
+  }
+
+  const parentVariant = {
+    open: {
+      transition: {
+        staggerChildren: 0.07,
+        delayChildren: 0.2
+      },
+    },
+    closed: {
+      transition: {
+        staggerChildren: 0.05,
+        delayChildren: -1,
+      }
+    }
+  }
+
+  const childVariant = {
+    open: {
+      opacity: 1,
+      y: 0
+    },
+    closed: {
+      opacity: 0,
+      y: -10
+    }
+  }
+
+  return (
+    <motion.div
+      initial={false}
+      animate={isOpen ? "open" : "closed"}
+      exit="closed" 
+      transition={{
+        duration: 0.3,
+      }}
+      className="border-r border-neutral-100 h-full"
+    >
+      <motion.nav
+        variants={sidebarVariant}
+        className="bg-white shadow-md h-full"
+      >
         <div className="p-4 flex justify-between items-center">
           <h2 className={`text-lg font-semibold ${!isOpen && "sr-only"}`}>
             Dashboard
@@ -62,23 +98,23 @@ export const Sidebar = () => {
         <div className="relative">
           {/* Sidebar Content */}
           <nav className="p-4">
-            <ul className="space-y-2">
+            <motion.ul variants={parentVariant} className="space-y-2">
               {links.map((link) => (
-                <li key={link.name}>
+                <motion.li variants={childVariant} key={link.name}>
                   <a
                     href={link.href}
-                    className="flex rounded items-center p-2 text-gray-700 hover:bg-gray-200 transition-colors duration-200"
+                    className="flex rounded items-center gap-1 p-2 text-gray-700 hover:bg-gray-200 transition-colors duration-200"
                   >
                     {link.icon}
                     {isOpen && link.name}
                   </a>
-                </li>
+                </motion.li>
               ))}
-            </ul>
+            </motion.ul>
           </nav>
         </div>
       </motion.nav>
 
-    </div>
+    </motion.div>
   )
 }
