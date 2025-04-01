@@ -1,7 +1,6 @@
 import { IconChartBar, IconChevronLeft, IconChevronRight, IconHome, IconSettings, IconUser } from "@tabler/icons-react"
 import { useState } from "react"
 import { motion } from "motion/react"
-import { delay } from "framer-motion"
 
 export const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(true)
