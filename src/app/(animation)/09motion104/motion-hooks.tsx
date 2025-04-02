@@ -6,34 +6,43 @@ import Image from "next/image";
 export default function MotionHooksExample() {
 	return (
 		<div className="min-h-screen flex items-center justify-center bg-neutral-900">
-      <div className="mx-auto flex max-w-4xl flex-col gap-10 py-40">
-        {features.map((feature, idx) => (
-          <div
-            key={feature.title}
-            className="grid grid-cols-2 items-center gap-20 py-40"
-          >
-           
-              <div className="flex flex-col gap-5">
-                {feature.icon}
-                <h2 className="text-4xl font-semibold text-white">{feature.title}</h2>
-                <p className="text-lg text-neutral-400">{feature.description}</p>
-              </div>
-              <div>{feature.content}</div>
-            </div>
-        ))}
-      </div>
+			<div className="mx-auto flex max-w-4xl flex-col gap-10 py-40">
+				{features.map((feature, idx) => (
+					<Card key={feature.title} feature={feature} />
+				))}
+			</div>
 		</div>
 	);
 }
 
-type FeaturesType = {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  content: React.ReactNode;
-}
+const Card = ({ feature }: { feature: FeaturesType }) => {
+	return (
+		<div
+			key={feature.title}
+			className="grid grid-cols-2 items-center gap-20 py-40"
+		>
+			<div className="flex flex-col gap-5">
+				{feature.icon}
+				<h2 className="text-4xl font-semibold text-white">
+					{feature.title}
+				</h2>
+				<p className="text-lg text-neutral-400">
+					{feature.description}
+				</p>
+			</div>
+			<div>{feature.content}</div>
+		</div>
+	);
+};
 
-const features:FeaturesType[] = [
+type FeaturesType = {
+	icon: React.ReactNode;
+	title: string;
+	description: string;
+	content: React.ReactNode;
+};
+
+const features: FeaturesType[] = [
 	{
 		icon: <IconRocket className="h-8 w-8 text-neutral-200" />,
 		title: "Generate Ultra Realistic images in seconds",
