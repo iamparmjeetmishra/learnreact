@@ -58,6 +58,8 @@
          - [ ] Dark Mode Using Zustand
          - [ ] State with Zustand
          - [ ] Cart with Zustand
+   - Pagination
+      - [ ] Infinite Scroll
 - Animation
    - [ ] Motion Series
       - [x] Motion 101 for Basic (while hover)
