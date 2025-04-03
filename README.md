@@ -59,7 +59,7 @@
          - [ ] State with Zustand
          - [ ] Cart with Zustand
    - Pagination
-      - [ ] Infinite Scroll
+      - [x] Infinite Scroll with images
 - Animation
    - [ ] Motion Series
       - [x] Motion 101 for Basic (while hover)
