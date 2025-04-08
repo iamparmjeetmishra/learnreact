@@ -60,9 +60,12 @@
          - [ ] Cart with Zustand
    - Pagination
       - [x] Infinite Scroll with images
+         - [ ] User Added Images Number
+         - [ ] Back to top button
 - Animation
    - [ ] Motion Series
       - [x] Motion 101 for Basic (while hover)
       - [x] Motion 102 for Exit animation
       - [x] Motion 103 for Motion Variants ["Animate Orchestration]
       - [x] Motion 104 for Motion Hooks ["useTransform", "useMotionValueEvent", "useMotionTemplate", "useSpring", "useScroll" ], [layout, sharedLayout]
+      - [ ] Motion 105 for Layouts in Motion
