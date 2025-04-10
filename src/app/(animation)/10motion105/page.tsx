@@ -1,6 +1,9 @@
+import { LayoutCards } from "./layout-cards";
 
-export const MotionPage = () => {
+export default function MotionPage () {
   return (
-    <div>MotionPage</div>
+    <div>
+      <LayoutCards />
+    </div>
   )
 }

@@ -1,8 +1,31 @@
+/* eslint-disable @next/next/no-img-element */
 "use client"
+
+import Image from "next/image";
 
 export const LayoutCards = () => {
   return <div className="py-40 bg-gray-100 min-h-screen">
-    
+    <div className="max-w-lg mx-auto flex flex-col gap-10">
+      {cards.map((card, idx) => (
+        <button
+          key={card.title}
+          className="p-4 rounded-lg cursor-pointer flex justify-between items-center bg-white border border-neutral-200"
+        >
+          <div className="flex gap-4 items-center">
+            <img
+              src={card.src}
+              alt={card.title}
+              className="h-16 aspect-square rounded-xl"
+            />
+            <div className="flex flex-col items-start gap-2">
+              <h2 className="font-bold text-lg tracking-tight text-black">{card.title}</h2>
+              <p className="text-xs text-neutral-500">{ card.description }</p>
+            </div>
+          </div>
+          <div className="px-2 py-1 bg-green-500 rounded-full text-white text-xs flex items-center justify-center">{ card.ctaText}</div>
+        </button>
+      ))}
+    </div>
   </div>
 }
 
