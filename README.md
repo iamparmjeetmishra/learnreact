@@ -69,3 +69,4 @@
       - [x] Motion 103 for Motion Variants ["Animate Orchestration]
       - [x] Motion 104 for Motion Hooks ["useTransform", "useMotionValueEvent", "useMotionTemplate", "useSpring", "useScroll" ], [layout, sharedLayout]
       - [x] Motion 105 for Layouts in Motion
+      - [ ] Motion 106 for Animation Sequences in Motion
