@@ -1,9 +1,9 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import {motion} from "motion/react"
 
 const useOutsideClick = (callback: () => void) => {
   const ref = useRef<HTMLDivElement>(null)
@@ -33,33 +33,39 @@ export const LayoutCards = () => {
       {current && <div className="fixed z-10 h-full w-full inset-0 bg-black/50 backdrop-blur-sm"></div>}
 			{current && <Modal current={current} onClose={() => setCurrent(null)} />}
 
-			
       <div className="max-w-lg mx-auto flex flex-col gap-10">
 				{cards.map((card, idx) => (
-					<button
+					<motion.button
+						layoutId={`card-${card.title}`}
 						onClick={() => setCurrent(card)}
 						key={card.title}
 						className="p-4 rounded-lg cursor-pointer flex justify-between items-center bg-white border border-neutral-200"
 					>
-						<div className="flex gap-4 items-center">
-							<img
+						<div className="flex gap-4 i tems-center">
+							<motion.img
+				layoutId={`card-image-${card.title}`}
+								
 								src={card.src}
 								alt={card.title}
+								width={100}
+								height={100}
 								className="h-16 aspect-square rounded-xl"
 							/>
 							<div className="flex flex-col items-start gap-2">
-								<h2 className="font-bold text-lg tracking-tight text-black">
+								<motion.h2
+									layoutId={`card-title-${card.title}`}
+									className="font-bold text-lg tracking-tight text-black">
 									{card.title}
-								</h2>
-								<p className="text-xs text-neutral-500">
+								</motion.h2>
+								<motion.p layoutId={`card-${card.description}`} className="text-xs text-neutral-500">
 									{card.description}
-								</p>
+								</motion.p>
 							</div>
 						</div>
-						<div className="px-2 py-1 bg-green-500 rounded-full text-white text-xs flex items-center justify-center">
-							{card.ctaText}
-						</div>
-					</button>
+						<motion.div layoutId={`card-${card.ctaLink}`}>
+							<Link href={card.ctaLink} className="px-2 py-1 bg-green-500 rounded-full text-white text-xs flex items-center justify-center">{card.ctaText}</Link>
+						</motion.div>
+					</motion.button>
 				))}
 			</div>
 		</div>
@@ -185,26 +191,46 @@ export const Modal = ({ current, onClose }: ModalProps) => {
   const ref = useOutsideClick(onClose);
 
   return (
-    <>
-      <div className="fixed z-10 inset-0 bg-black/50 backdrop-blur-sm" />
-      <div
+		<motion.div
+			layoutId={`card-${current.title}`}
         ref={ref}
-        className="fixed inset-0 m-auto h-[600px] w-80 bg-white rounded-2xl z-20 border border-neutral-200 shadow-md"
+        className="fixed inset-0 m-auto h-[600px] w-80 bg-white rounded-md z-20 shadow-md p-2"
       >
-        <img src={current.src} alt={current.title} className="w-full aspect-square rounded-t-2xl" />
-        <div className="p-4 flex flex-col gap-4">
+			<motion.img
+				layoutId={`card-image-${current.title}`}
+					src={current.src}
+					alt={current.title}
+					width={320}
+					height={320}
+					className="w-full aspect-square rounded-md"
+				/>
+        <div className="flex flex-col gap-4 p-2 mt-2">
           <div className="flex justify-between">
             <div>
-              <h2 className="text-lg font-bold">{current.title}</h2>
-              <p className="text-xs text-neutral-500">{current.description}</p>
+              <motion.h2 layoutId={`card-title-${current.title}`}  className="text-lg font-bold">{current.title}</motion.h2>
+              <motion.p layoutId={`card-${current.description}`}  className="text-xs text-neutral-500">{current.description}</motion.p>
             </div>
-            <Link href={current.ctaLink} className="text-xs bg-green-500 px-2 py-1 rounded-full text-white">
-              {current.ctaText}
-            </Link>
+            <motion.div layoutId={`card-${current.ctaLink}`}>
+							<Link href={current.ctaLink} className="px-2 py-1 bg-green-500 rounded-full text-white text-xs flex items-center justify-center">{current.ctaText}</Link>
+						</motion.div>
           </div>
-          <div className="h-40 overflow-auto">{current.content()}</div>
+				<motion.div
+					initial={{
+						filter: "blur(10px)",
+						opacity: 0,
+					}}
+					animate={{
+						filter: "blur(0px)",
+						opacity: 1,
+					}}
+					transition={{
+						delay: 0.3,
+					}}
+					className="h-40 overflow-auto pb-10 [mask-image:linear-gradient(to_top,transparent,black_40%)]"
+				>
+					{current.content()}
+				</motion.div>
         </div>
-      </div>
-    </>
+      </motion.div>
   );
 };
