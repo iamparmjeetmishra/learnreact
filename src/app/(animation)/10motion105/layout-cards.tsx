@@ -1,17 +1,40 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+const useOutsideClick = (callback: () => void) => {
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleClick = (event: MouseEvent) => {
+      if (ref.current && !ref.current.contains(event.target as Node)) {
+        callback()
+      }
+    }
+    document.addEventListener("click", handleClick)
+
+    return () => {
+      document.removeEventListener("click", handleClick)
+    }
+	}, [callback])
+	return ref
+}
+
 
 export const LayoutCards = () => {
-	const [current, setCurrent] = useState<CardType | null>(null);
+  const [current, setCurrent] = useState<CardType | null>(null);
+
 
 	return (
     <div className="py-40 relative bg-gray-100 min-h-screen">
       {current && <div className="fixed z-10 h-full w-full inset-0 bg-black/50 backdrop-blur-sm"></div>}
-      {current && <CurrentCard {...current} />}
-			<div className="max-w-lg mx-auto flex flex-col gap-10">
+			{current && <Modal current={current} onClose={() => setCurrent(null)} />}
+
+			
+      <div className="max-w-lg mx-auto flex flex-col gap-10">
 				{cards.map((card, idx) => (
 					<button
 						onClick={() => setCurrent(card)}
@@ -49,8 +72,9 @@ type CardType = {
 	src: string;
 	ctaText: string;
 	ctaLink: string;
-	content: () => React.ReactNode;
+  content: () => React.ReactNode;
 };
+
 
 const cards: CardType[] = [
 	{
@@ -151,36 +175,36 @@ const cards: CardType[] = [
 	},
 ];
 
-const CurrentCard = (current: CardType) => {
-	return (
-		<div className="h-[600px] fixed inset-0 m-auto bg-white z-10 w-80 rounded-2xl border border-neutral-200 shadow-md">
-			<img
-				src={current.src}
-				alt={current.title}
-				className=" w-full aspect-square rounded-2xl rounded-b-none"
-			/>
 
-			<div className="flex flex-col justify-between items-start p-4 gap-4">
-				<div className="flex items-start justify-between w-full gap-2">
-					<div className="flex flex-col items-start gap-2">
-						<h2 className="font-bold text-lg tracking-tight text-black">
-							{current.title}
-						</h2>
-						<p className="text-xs text-neutral-500">
-							{current.description}
-						</p>
-					</div>
-					<Link
-						href={current.ctaLink}
-						className="px-2 py-1 bg-green-500 rounded-full text-white text-xs "
-					>
-						{current.ctaText}
-					</Link>
+type ModalProps = {
+  current: CardType;
+  onClose: () => void;
+};
+
+export const Modal = ({ current, onClose }: ModalProps) => {
+  const ref = useOutsideClick(onClose);
+
+  return (
+    <>
+      <div className="fixed z-10 inset-0 bg-black/50 backdrop-blur-sm" />
+      <div
+        ref={ref}
+        className="fixed inset-0 m-auto h-[600px] w-80 bg-white rounded-2xl z-20 border border-neutral-200 shadow-md"
+      >
+        <img src={current.src} alt={current.title} className="w-full aspect-square rounded-t-2xl" />
+        <div className="p-4 flex flex-col gap-4">
+          <div className="flex justify-between">
+            <div>
+              <h2 className="text-lg font-bold">{current.title}</h2>
+              <p className="text-xs text-neutral-500">{current.description}</p>
+            </div>
+            <Link href={current.ctaLink} className="text-xs bg-green-500 px-2 py-1 rounded-full text-white">
+              {current.ctaText}
+            </Link>
+          </div>
+          <div className="h-40 overflow-auto">{current.content()}</div>
         </div>
-        <div className="h-40 overflow-auto">
-          {current.content()}
-        </div>
-			</div>
-		</div>
-	);
+      </div>
+    </>
+  );
 };
