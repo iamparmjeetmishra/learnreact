@@ -23,6 +23,10 @@
    - [x] Working with Fetch
    - [x] UI Improved 
    - [ ] Axios Pending
+- [x] Nextjs Image Tag
+   - [x] static imports
+   - [x] Dynamic imports
+   - [x] blurdata image
 - UI Elements
  - [x] Animated Border Spin
  - [x] Animated Pill Nav
